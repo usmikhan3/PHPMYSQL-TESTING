@@ -4,6 +4,7 @@ import 'package:http/http.dart ' as http;
 import 'dart:convert';
 
 import 'package:sql_test/screen/detailpage.dart';
+import 'package:sql_test/screen/newData.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
 
- final String url = "http://localhost/testflutter/getData.php";
+ final String url = "http://192.168.0.197/testflutter/getData.php";
 
   Future<List> getData() async{
     final response = await http.get(url);
@@ -29,7 +30,9 @@ class _HomePageState extends State<HomePage> {
         title: Text("Sql testing"),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (_)=>NewData()));
+        },
         child: Icon(Icons.add),
       ),
       body: FutureBuilder<List>(
@@ -45,6 +48,7 @@ class _HomePageState extends State<HomePage> {
         else{
           return Center(child: CircularProgressIndicator());
         }
+
       } ,),
     );
   }

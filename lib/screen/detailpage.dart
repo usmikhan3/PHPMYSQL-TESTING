@@ -15,6 +15,8 @@ class _DetailPageState extends State<DetailPage> {
 
   void confirm(){
 
+
+
   }
   @override
   Widget build(BuildContext context) {
@@ -25,20 +27,24 @@ class _DetailPageState extends State<DetailPage> {
 
 
 
-      body: Container(
-        child: Column(
-          children: [
-            Text(widget.list[widget.index]['my_name'],style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-            Text(widget.list[widget.index]['my_no'],style: TextStyle(fontSize: 16),),
-            MaterialButton(onPressed: (){},
-            child: Text("Edit"),
-              color: Colors.deepOrange,
+      body: Center(
+        child: Container(
+          child: Center(
+            child: Column(
+              children: [
+                Text(widget.list[widget.index]['my_name'],style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                Text(widget.list[widget.index]['my_no'],style: TextStyle(fontSize: 16),),
+                MaterialButton(onPressed: (){},
+                child: Text("Edit"),
+                  color: Colors.deepOrange,
+                ),
+                MaterialButton(onPressed: (){confirm();},
+                  child: Text("delete"),
+                  color: Colors.lightBlueAccent,
+                )
+              ],
             ),
-            MaterialButton(onPressed: (){confirm();},
-              child: Text("delete"),
-              color: Colors.lightBlueAccent,
-            )
-          ],
+          ),
         ),
       ),
     );
